@@ -18,3 +18,11 @@ try {
 } finally {
   console.log('in the finally block');
 }
+
+// To play around with try catch finally, try this:  (always throws an error)
+
+try {
+  JSON.parse({});
+} catch (err) {
+  console.log(err);
+} finally
