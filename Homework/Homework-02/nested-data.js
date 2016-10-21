@@ -37,29 +37,47 @@ printStuff('object with another object for a property:', objArray);
 
 /****************************************************************************************************************/
 
-// Create an array of objects - using for loop for practice
+// Create an array of objects - using for loop for practice and switch
+var motoArray = ['Ducati', 'Moto Guzzi', 'BMW', 'Honda'];
+var newMotoArray = [];
 
-var myArrayOfObjects = [];
-var myNewObj = {};
-
-for (var i = 0; i < 10; i++) {
-  
-    myNewObj.objNum = i,
-    myNewObj.firstName = 'Jodi',
-    myNewObj.lastName = 'De Grave',
-    myNewObj.phone = '479-715-7785',
-    myNewObj.favNumber = '7'
-    myArrayOfObjects.push(myNewObj); 
-    printStuff('array of objects: ', myArrayOfObjects);
-        
+for (var i = 0; i < 4; i++) {
     
+    //create a new motoObject each time through the for loop; 
+    //create a make property with a value from the index of motoArray? 
+        var motoObject = {
+         make: motoArray[i]   
+    };
+    
+    switch(i){
+        case 0:        
+            motoObject.model = 'ST3';
+            motoObject.color = 'Ducati Red';
+            break;
+            
+        case 0:        
+            motoObject.model = 'V7 Scrambler II';
+            motoObject.color = 'Blue';
+            break;    
+            
+        case 2:        
+            motoObject.model = 'K1600GT';
+            motoObject.color = 'Silver Metallic';
+            break;          
+        case 3:        
+            motoObject.model = 'NM4';
+            motoObject.color = 'Black Matte Metallic';
+            
+            break;   
+        defualt:
+            motoObject.model = 'Goldwing';
+            motoObject.color = 'yellow';
+            break;         
+    } //end switch
+    newMotoArray.push(motoObject); 
 }    
-
-
-
-
-
-
+printStuff('array of objects: ', newMotoArray);
+printStuff('array of objects: ', motoArray);
 
 
 // Practicing functions - counting on 'hoisting' to make this work - and it does!
@@ -68,6 +86,4 @@ function printStuff(name, obj) {
     console.log(obj);
     console.log('\n');
 }
-
-
 
