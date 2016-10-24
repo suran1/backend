@@ -2,14 +2,14 @@
 
 var myArray =[];
 
-for (var i = 1; i <=10; i++) {
+for (var i = 0; i < 10; i++) {
   myArray[i] = i;     // never do this! Doesn't work in JS - it adds
   console.log(myArray[i],  myArray);
 }
 console.log('I can count to 10: ', myArray);
 
 
-//Solution:
+// Better Solution to append to an array
 var arr =[];
 
 for (var i = 1; i <=10; i++) {
@@ -35,18 +35,20 @@ var finalArray = [];
 var arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   console.log(arr2);
   for (i = 0; i < 10; i++){
-    //arr2[i] = arr2[i] * 2;
-    finalArray[i] = arr2[i] * 2;  // don't do it this way unless going to specific
+    finalArray[i] = arr2[i] * 2;  // don't do it this way unless going to specify the element in an array
                                   // way
     finalArray.push(arr2[i] * 2);
   }
   console.log(finalArray);
 
+// Adding properties to an object
 
 var i = 0;
 var carArray = ['Ford', 'Chevy', 'BMW', 'Audi', 'VW']
 var newArray = [];
 
+
+// A loop to add model property to each item in the array
 do {
   var obj = {
     make: carArray[i]
