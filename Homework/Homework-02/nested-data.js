@@ -50,6 +50,8 @@ for (var i = 0; i < 4; i++) {
     };
     
     switch(i){
+        // note that when adding a property to an existing object, use assignment operator (=) instead of (:), and 
+        // add (;) at the end of the line   
         case 0:        
             motoObject.model = 'ST3';
             motoObject.color = 'Ducati Red';
@@ -77,7 +79,6 @@ for (var i = 0; i < 4; i++) {
     newMotoArray.push(motoObject); 
 }    
 printStuff('array of objects: ', newMotoArray);
-printStuff('array of objects: ', motoArray);
 
 
 // Practicing functions - counting on 'hoisting' to make this work - and it does!
