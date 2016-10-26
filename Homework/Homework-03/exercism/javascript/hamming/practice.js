@@ -12,18 +12,7 @@ function Hamming(strand1, strand2) {
     }     
     
     console.log(strand1, strand2);
-    /*
-    var arr1 = strand1.split('');
-    var arr2 = strand2.split('');
-    
-    
-    for (var i = 0; i < arr1.length; i++) {
-        if (arr1[i] !== arr2[i]) {
-                console.log(arr1[i], arr2[i]);
-                count++; 
-            } // end if
-        } // end for    
-    */
+
     
     for (var i = 0; i < strand1.length; i++) {
         if (strand1.charAt(i) !== strand2.charAt(i)) {
