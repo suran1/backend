@@ -2,20 +2,16 @@ var Year = function() {};
 
 Year.prototype.isLeap = function(year) {
     
-    if (year % 400 === 0) {
+  // If year is evenly divisible by 4 and not evenly disibly by 100 but is evenly divisible by 400, it's a leap year)    
+  if (year % 400 === 0) {
         return true;
-    }
-    else if (year % 100 === 0) { 
+  } else if (year % 100 === 0) {
         return false;
-    }
-    else if (year % 4 === 0) {  
+  } else if (year % 4 === 0) {
         return true; 
-    }
-    else {
+  } else {
         return false;
-    }
-   
-    
-} // end function
+  }      
+};
 
 module.exports = Year;
