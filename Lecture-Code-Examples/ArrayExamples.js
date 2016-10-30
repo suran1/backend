@@ -49,6 +49,19 @@ var myObjectWithObject = {
 
 console.log('MY ADDRESS: ', myObjectWithObject.address);
 
+// If you didn't know the property name 
+
+/*update an object's property
+
+function adjustPropertyInObject(property,value){
+ objectWithObject[property]= value
+}
+
+adjustPropertyInObject('property name', 'new value');
+ex.) adjustPropertyInObject('firstname', 'bob');
+
+*/
+
 //array of objects
 var myArrayOfObjects = [myObject, myObjectWithArray, myObjectWithObject];
 console.log('AN OBJECT: ', myArrayOfObjects[1].lastName);
@@ -62,12 +75,15 @@ console.log('OBJECT NAME:', myArrayOfObjects[1]);
 //JSON have to put quotes around property names, strings. Don't put
 // quotes around numbers
 /*Example:
-{
+var jsonObj {
       {
         'propery-name':  'Jodi'
         'property-num': 5    //no quotes for numbers
     }
-}
+};
+
+    var objectFromJson = jsonObj.json();
+    // JS conventions are to NOT include the quotes because .json() is a JS library that converts it for you
 */
 var myOtherArrayOfObjects = [
   {
@@ -86,3 +102,6 @@ var myOtherArrayOfObjects = [
       third: 9
   }
 ];
+
+// Creates a property called 'fourth' in the 0th element of the array (which is an object)
+console.log(myOtherArrayOfObjects[0].fourth = 4);

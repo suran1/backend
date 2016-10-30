@@ -7,16 +7,22 @@
 
 
 var myNumber = 0;
-// var myString = 'house';
-//
-// //check for null and undefined...Read more about this
-// if(!myString){
-//   console.lgo ('myString is not defined');
-// }
-//
-//
-//
-//
+var myString = 'house';
+
+/* check for null and undefined...Read more about this
+
+if (varibleName !== undefined && variableName !== null) {
+    
+}
+
+*/
+    if(!myString){
+        console.lgo ('myString is not defined');
+ }
+
+
+
+
 // if (myNumber > 5){
 //   console.log('my number is big');
 // } else if (myNumber < 5){
@@ -70,7 +76,7 @@ console.log(isBig);
 
 
 
-//Switch statement - you don't need to say 'case'
+//Switch statement - youneed to say 'case'
 switch(myNumber){
   case 1:
     console.log('one');
