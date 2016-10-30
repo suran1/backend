@@ -9,23 +9,25 @@ var Bob = function() {};
 Bob.prototype.hey = function(input) {
 //
     
+        
+    
     var finalChar = input.substr(input.length - 1);
     console.log(finalChar);
     
     var yell = input.toUpperCase();
-    var numbers = /[0-9],\s[0-9],\s[0-9]\s/.test(input);
-    //var if (input(/[0-9],\s[0-9],\s[0-9]/))
-        ;
+    var numbers = input.split(', ');
+    var check =;
+    
         
     console.log('yell = ', yell);
     console.log('input = ', input);
     console.log('numbers : ', numbers);
     
-    //if (numbers) 
+    if (numbers.fiter(function(elem){
+        return 
+    } 
     
-    
-    
-    if ((yell === input) || (numbers)){
+    if ((yell === input) && (input !== numbers)){
         console.log(yell === input);
         console.log(input === numbers);
         return 'Whoa, chill out!';
@@ -39,6 +41,7 @@ Bob.prototype.hey = function(input) {
             case '?':
                 return 'Sure.';
                 break;
+            case [0-9]:
             default:
                 return 'Whatever.';
         } // end switch

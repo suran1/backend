@@ -22,3 +22,4 @@ console.log('Is 1978 a leap year? ', isLeap(1978));
 console.log('Is 1992 a leap year? ', isLeap(1992));
 console.log('Is 2100 a leap year? ', isLeap(2100));
 console.log('Is 2400 a leap year? ', isLeap(2400));
+
