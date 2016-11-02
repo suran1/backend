@@ -32,4 +32,4 @@ function getAverage (arr) {
 console.log(getAverage([2,2,2,2])); //2
 console.log(getAverage([1,2,3,4,5,])); //3
 console.log(getAverage([1,1,1,1,1,1,1,2])); //1
-console.log(getAverage([4,3,0,1,true,1,1,2])); //
+console.log(getAverage([4,3,0,1,true,1,1,2])); //1

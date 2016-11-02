@@ -17,52 +17,125 @@ function smallestInteger(smallInt) {
         return a - b;   //
     });
     
-    //console.log(smallInt);
-
     return smallInt[0]; 
 }
 
 
+console.log('The easy way - using the array.sort with a compare function: ');
 
 console.log(smallestInteger([34, 15, 88, 2])); // 2
 console.log(smallestInteger([34, -345, -1, 100])); // -345
 
-/*Since you'll probably want me to carve this out of stone, I'm working on quicksort. Probably won't be done before class
-  This isn't the final code (or close to it)...tried to squeeze out a sorting algorighm with my brain but, realized I'd have
-  to track position and what not.
+// Since you'll probably want me to carve this out of stone, I'm working on Quick Sort. Probably won't be done before class
+//  QuickSort works by partitioning the array in place
  
 
-function smallestInt (intArr){
-    var smallestPos = 0;
-    var swap = 0;
+
+
+function quickSort (intArr, left, right) {
+    var index;                          // don't initialize it yet
     
-    for (var i = 0; i < intArr.length; i++){
-        if (intArr[i] === NaN || intArr[i] === undefined || intArr[i] === null || intArr[i] === '') {
-            return 'This array has non numeric values. Exiting now.';
-        } 
+  
+    var process = validateArr (intArr);    // Thought I'd validate the array first before attempting to process it
+    
+    // Exit quickSort if the array isn't 100% numeric or evalutes to numeric; if there are boolean values, sort will proceed
+    if (process === -1) {
+        return console.log('This array has non-numeric values and is invalid for sorting. Exiting now.');
+    } else if (process === 1) {
+        console.log('This array has boolean values. Sorting will continue with 0 for false and 1 for true.');
+    } else {
+        ;   // do nothing
+    }
+    
+    
+    // Now that we know array is valid (i.e. all numeric values or evaluates to numeric), if the array has 1 or no elements, don't sort 
+    // return array.
+
+    if (intArr.length > 1){
         
-        if (typeof intArr[i] === 'boolean') {
-            console.log('This array has boolean values. Sorting will continue with 0 for false and 1 for true.');
+        // check to see if left index has a value (1st time through, it won't), if not, set left to 0, otherwise left is left
+        if (typeof left != 'number'){
+            left = 0;
+        }
+        
+        // check to see if the right index has a value (1st time through it won't), if not, set it to last index in intArr 
+        if (typeof right != 'number') {
+            right = intArr.length - 1;
+        }
+        
+        index = partition(intArr, left, right);
+        
+        if (left < index -1){
+            quickSort(intArr, left, index-1);
         }
         
         
-        // So I looked up some sorting algorithms. Went with Quick Sort
-        if (i !== intArr.length - 1){
-            console.log('Working on it...');
-            
-        } else if (intArr[i] > intArr[i + 1]){
-            swap = intArr[i+1];     // store larger number in swap variable
-            intArr[i+1] = intArr[i]  // move larger number into the next element
-            intArr[i] = swap;       // the smaller element is in its proper place
-            smallestPos = i          
-            
+        if (index < right) {
+            quickSort(intArr, index, right);
         }
-    } // end for
+        
+    }  // end outer if  
     
-    return intArr[0];
+    return intArr[0];    //The first element in the array is the smallest integer
     
 } // end function
 
-console.log(smallestInt([34, 15, 88, 2])); // 2
-console.log(smallestInt([34, -345, -1, 100])); // -345
-*/
+
+function partition (numArr, left, right){
+    var pivot = numArr[Math.floor((left + right) / 2)];     // find the pivot value 
+    
+    i = left;                                               // i is the pointer to the left of the pivot point
+    j = right;                                              // j is the pointer to the right of the pivot point
+
+    while (i < j) {
+        
+        while (numArr[i] < pivot) {                          // theck the values on the left side of the pivot to ensure
+            i++                                             // they are less than it; if so increment i; if not, stop
+        }
+        
+        while (numArr[j] > pivot) {                         // check the values on the right side of the pivot to ensure
+            j--;                                            // they are greater than it; if so, decrement 1, if not stop
+        }
+        
+        if (i <= j) {                                       // At this point, the pointers have stopped moving. If i is less than j 
+            swap(numArr, i, j);                              // or equal to j, then swap the values at i and j so that all items greater
+            i++;                                            // than pivot are on the right, and all items less than pivot are on the left
+            j--;                                            // increment i and decrement j so that 
+        } 
+    } // end while
+    
+    return i;                                               // this sets us up to start at the correct position for next partiion
+}
+
+
+function swap (arr, leftPointer, rightPointer) {             // swap out the values that left pointer and right pointer are indexing
+    
+    var temp = arr[leftPointer];
+        arr[leftPointer] = arr[rightPointer];
+        arr[rightPointer] = temp;
+}
+
+
+
+function validateArr (arr) {                                  // validate the array to ensure it's 100% numeric or numeric equivalent
+    var validArr = 0;
+    
+    for (var i = 0; i < arr.length; i++) {
+        if ( arr[i] === NaN || arr[i] === undefined || arr[i] === null || arr[i] === '') {
+            return validArr = -1;
+        } 
+        
+        if (typeof arr[i] === 'boolean') {
+            return validArr = 1;
+        } 
+    } // end for    
+    
+    return validArr;
+} // end function
+ 
+
+console.log('\n\nThe hard way - with a quickSort algorithm: ')
+
+console.log(quickSort([34, 15, 88, 2])); // 2
+console.log(quickSort([34, -345, -1, 100])); // -345       
+// console.log(quickSort([34, 15, 88, true, 2])); // 2
