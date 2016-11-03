@@ -4,16 +4,16 @@
 // Example output [['a', 'b'], ['c', 'd']]
 
 
-function splitArray(arr, size){
+function splitArray (arr, size) {
 
  var newArr = [];
  
 
  for (var i = 0; i < arr.length; i+=size) {
-     newArr.push(arr.slice(i, size + i));
- }    
+     newArr.push(arr.slice(i, size + i));     // this works because slice returns one less than the upper bound (e.g. i = 0, size + i = 2, slice
+ }                                            // creates an array from index 0 to index 1; then by incrementing i by size, we're at the correct
+                                              // spot in the array for the next iteration through the loop)
     
-
  return newArr;
 
 }
