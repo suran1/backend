@@ -37,3 +37,19 @@ return finalStr.join(' ');
 console.log(alphabetPosition("The sunset sets at twelve o' clock."));  // "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
 console.log(alphabetPosition("The narwhal bacons at midnight."));      // "20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20"
 
+/************************************************************************************************************************/
+
+function alphaPos(x) {
+      var letNum = [];      // final array
+      var repUp = x.toUpperCase();   // upper case
+
+      for (i = 0; i < x.length; i++){
+        if (repUp.charCodeAt(i) < 65 || repUp.charAt(i) > 90) {
+          letNum.push(repUp.charAt(i));
+        } else {
+          letNum.push(repUp.charCodeAt(i) - 64);    // returns the place in the alphabet
+        }
+      } // end of for
+    
+      return letNum.join(' ');
+}

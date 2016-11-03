@@ -2,7 +2,7 @@
 
 function binaryArrayToNumber (binArr){
     
-    var arr = binArr.join('');
+    var arr = binArr.join('');          // take the array values and combine them into a string
     
     var decimal = parseInt(arr, 2);
     
@@ -50,8 +50,26 @@ console.log(binArrToNum([0, 0, 0, 1]), 1); // 1
 console.log(binArrToNum([0, 0, 1, 0]), 2); // 2
 console.log(binArrToNum([1, 1, 1, 1]), 15); // 15
 console.log(binArrToNum([0, 1, 1, 0]), 6); // 6
+
+
+// another way with a loop
+
+function binToDec (arr) {
+    var decimal = 0;
+    var exponent = 0;
     
+    for (var i = arr.length-1; i >=0; i--){
+        decimal += (arr[i] * Math.pow(2, exponent));
+        exponent++; 
+    }
     
+    return decimal;
     
+}
+    
+console.log(binArrToNum([0, 0, 0, 1]), 1); // 1
+console.log(binArrToNum([0, 0, 1, 0]), 2); // 2
+console.log(binArrToNum([1, 1, 1, 1]), 15); // 15
+console.log(binArrToNum([0, 1, 1, 0]), 6); // 6    
     
     

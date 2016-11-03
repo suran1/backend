@@ -2,7 +2,6 @@
 
 function smallestInteger(smallInt) {
     
-    var smallest = 0;
     
     /* Using this format to call an anonymous function that compares array elements to overcome the default lexicographical sort of the 
      * array.sort method. This anonymous compare function returns 1 of three values:
@@ -17,7 +16,7 @@ function smallestInteger(smallInt) {
         return a - b;   //
     });
     
-    return smallInt[0]; 
+    return smallInt[0];   
 }
 
 
@@ -25,6 +24,40 @@ console.log('The easy way - using the array.sort with a compare function: ');
 
 console.log(smallestInteger([34, 15, 88, 2])); // 2
 console.log(smallestInteger([34, -345, -1, 100])); // -345
+
+/****************************************************************************************************************/
+
+function smallInt (arr) {
+    
+    return Math.min.apply(null, arr);   // passes the array and passes each element into the min function; it tracks 
+                                        // null sets the 'this' keyword
+    
+}
+
+console.log(smallestInteger([34, 15, 88, 2])); // 2
+console.log(smallestInteger([34, -345, -1, 100])); // -345
+
+
+/**********************************************************************************************************************/
+
+    function smInt (arr) {
+        
+        var smallest = arr[0];
+        
+        for (var i = 1; i < arr.length; i++){
+            if (arr[i] < smallest) {
+                smallest = arr[i];
+            }
+        }
+        
+        return smallest;
+        
+    } // end function
+
+console.log(smallestInteger([34, 15, 88, 2])); // 2
+console.log(smallestInteger([34, -345, -1, 100])); // -345
+
+/*************************************************************************************************************************/
 
 // Since you'll probably want me to carve this out of stone, I'm working on Quick Sort. Probably won't be done before class
 //  QuickSort works by partitioning the array in place
