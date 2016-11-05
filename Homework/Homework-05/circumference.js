@@ -2,8 +2,10 @@
 
 function circumference (radius) {
     
-    if (typeof radius === 'undefined' || radius <= 0 || typeof radius !== 'number') {
-        return ('Radius is not a number, or is not in a numerical format, or isn\'t greater than zero. Circumference not calculated.');
+    if (radius === "\u03C0") {
+        return (2 * Math.PI * 3.14).toFixed(3);
+    } else if(typeof radius === 'undefined' || radius <= 0 || typeof radius !== 'number' ) {
+        return ('Radius is not a number, or isn\'t greater than zero. Circumference not calculated.');
     } else { 
         return (2 * Math.PI * radius).toFixed(3);      
     }
