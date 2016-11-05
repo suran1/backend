@@ -1,5 +1,5 @@
 // Calculate the circumference of a circle, given the radius as a function argument. The calculation for circumference is 2πr.
-
+// Circumference calculated to 3 decimal places.
 function circumference (radius) {
     
     if (radius === "\u03C0") {
@@ -17,3 +17,5 @@ console.log(circumference('π'));
 console.log(circumference(0));
 console.log(circumference(-1));
 console.log(circumference(2720));
+console.log(circumference(null));
+console.log(circumference(""));
