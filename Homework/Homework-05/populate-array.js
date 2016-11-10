@@ -19,6 +19,7 @@ function counting (size) {
            
             for (var i = size; i < 0; i++) {
                 newArr.push(i);
+                
             }
        } else {
            

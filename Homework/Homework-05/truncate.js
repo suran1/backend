@@ -44,3 +44,19 @@ console.log(truncateString('A-tisket a-tasket A green and yellow basket', 11));
 console.log(truncateString('Peter Piper picked a peck of pickled peppers', 14));
 console.log(truncateString('A-tisket a-tasket A green and yellow basket', 'A-tisket a-tasket A green and yellow basket'.length));
 console.log(truncateString('A-tisket a-tasket A green and yellow basket', 3));
+
+
+// alternate way - use substring
+
+function trunc (str, max) {
+    
+    var string = (str > max) ? str.substring(0, max-3) + '...' : str;
+    
+    return string;
+    
+}
+
+console.log(trunc('A-tisket a-tasket A green and yellow basket', 11));
+console.log(trunc('Peter Piper picked a peck of pickled peppers', 14));
+console.log(trunc('A-tisket a-tasket A green and yellow basket', 'A-tisket a-tasket A green and yellow basket'.length));
+console.log(trunc('A-tisket a-tasket A green and yellow basket', 3));
