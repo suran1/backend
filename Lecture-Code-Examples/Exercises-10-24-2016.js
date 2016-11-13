@@ -41,7 +41,8 @@ function timesTwo (num1, num2) {
 //  console.log(x()):                   // First time through, compiler notes x and y exist, but does not assign anything to them (undefined)
 //  console.log(y());                   // Throws error - function EXPRESSIONS (indeed all expresions) are NOT hoisted; y is not yet defined
 //  
-//  function x() { return 2;}           // 1.5  time through - compiler assigns this value to function x (it's hoisted becasue it's a 
+//  function x() { return 2;}    
+// 1.5  time through - compiler assigns this value to function x (it's hoisted becasue it's a 
                                         // function DECLARTION)
 //
 //  var y = function () {return 10;};     // Funciton EXPRESSION - compiler doesn't get here until lexicolgraphic (it reaches the

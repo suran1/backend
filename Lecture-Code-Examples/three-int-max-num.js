@@ -38,48 +38,89 @@ console.log(maxRedigit(636)); // 663
 console.log(maxRedigit(555)); // 555
 console.log(maxRedigit(32)); // null
 
-/** REPLACE THIS WITH BRENNA'S CODE
-function maxRed (n) {
-    
-    var newNum = [];
-     var inValid = 'Not a valid number';
-     var strNum = ''; 
-     
-    
-    
-    
-   
-     if (n < 100) {
-        newNum = inValid;
-     } else {
-        strNum = n.toString();
-        newNum = strNum.split('');
-        
-        var max = newNum[0];
-    
-        for (i = 0; i < strNum; i++) {
-            if (newNum[i] > max) {
-                temp = max;
-                max = newNum[i];
-                
-                
-            }
-        } 
-     
-    
-        return newNum.join('');
-     }
-    
+/** Manual solution */
+var maxRedig = function(num) {
+
+  if (!Number.isInteger(num) || num < 100 || num > 999) {
+    return null;
+  }
+
+  var numString = num.toString();
+  var numArray = numString.split('').sort();
+  var answerArray = [];
+  var answerString;
+  var maxIndex = findMaxIndex(numArray);
+  var minIndex = findMinIndex(numArray);
+  var midIndex;
+
+  if (maxIndex === 0 && minIndex === 1) {
+    midIndex = 2;
+  } else if (maxIndex === 0 && minIndex === 2) {
+    midIndex = 1;
+  } else if (maxIndex === 1 && minIndex === 0) {
+    midIndex = 2;
+  } else if (maxIndex === 1 && minIndex === 2) {
+    midIndex = 0;
+  } else if (maxIndex === 2 && minIndex === 0) {
+    midIndex = 1;
+  } else if (maxIndex === 2 && minIndex === 1) {
+    midIndex = 0;
+  } else if (maxIndex === minIndex) {
+    midIndex = 1;
+    maxIndex = 2;
+  }
+
+  answerArray[0] = numArray[maxIndex];
+  answerArray[1] = numArray[midIndex];
+  answerArray[2] = numArray[minIndex];
+  answerString = answerArray.join('');
+
+  return parseInt(answerString, 10);
 }
 
+function findMaxIndex(numArray) {
+  var maxIndex = 0;
 
-console.log(maxRed(123)); // 321
-console.log(maxRed(297)); // 972
-console.log(maxRed(368)); // 863
-console.log(maxRed(531)); // 531
-console.log(maxRed(636)); // 663
-console.log(maxRed(555)); // 555
-console.log(maxRed(32)); // null
+  for (var i = 1; i < numArray.length; i++) {
+    if (numArray[i] > numArray[maxIndex]) {
+      maxIndex = i;
+    }
+  }
 
+  return maxIndex;
+}
 
-**/
+function findMinIndex(numArray) {
+  var minIndex = 0;
+
+  for (var i = 1; i < numArray.length; i++) {
+    if (numArray[i] < numArray[minIndex]) {
+      minIndex = i;
+    }
+  }
+
+  return minIndex;
+}
+
+// Fancy Pants Array Operation Solution
+var maxRedigit = function(num) {
+  if (num < 100 || num > 999) {
+    return null;
+  }
+
+  var numString = num.toString();
+  var numArray = numString.split('');
+  numArray.sort().reverse();
+  var answerString = numArray.join('');
+
+  return parseInt(answerString, 10);
+}
+
+console.log(maxRedig(123)); // 321
+console.log(maxRedig(297)); // 972
+console.log(maxRedig(368)); // 863
+console.log(maxRedig(531)); // 531
+console.log(maxRedig(636)); // 663
+console.log(maxRedig(555)); // 555
+console.log(maxRedig(32)); // null
+

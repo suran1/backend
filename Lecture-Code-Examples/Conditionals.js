@@ -17,7 +17,7 @@ if (varibleName !== undefined && variableName !== null) {
 
 */
     if(!myString){
-        console.lgo ('myString is not defined');
+        console.log ('myString is not defined');
  }
 
 

@@ -32,7 +32,7 @@ console.log(generateRange(10, 82, 9)); // [10, 19, 28, 37, 46, 55, 64, 73, 82]
 
 // using a while loop:
 
-funciton genRange (min, max, step) {
+function genRange (min, max, step) {
     arr = [];
     var i = min;
     while (current <= max){

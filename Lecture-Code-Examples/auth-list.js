@@ -81,3 +81,46 @@ console.log('\nCondensed version\n');
 console.log(authUser(['john123', 'alex222', 'sandra1']));    // returns true
 console.log(authUser(['john123', 'alex222', 'sandraW']));    // returns false because sandraW has no number
 console.log(authUser(['john_123', 'alex222', 'sandra1']));   // returns false because john_123 contains an invalid character
+
+
+// Alternate solution not using reg expressions
+
+function authorizeList (arr) {
+  var isValid = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    var validLength = false;
+    var validLowercase = false;
+    var validNumber = false;
+    var validChars = true;
+
+    if (arr[i].length >= 6 && arr[i].length <= 10) {
+      validLength = true;
+    }
+
+        for (var j = 0; j < arr[i].length; j++) {
+          if (arr[i][j] >= 0 && arr[i][j] <= 9) {
+            validNumber = true;
+          }
+
+          if (arr[i][j].charCodeAt(0) >= 97 && arr[i][j].charCodeAt(0) <= 122) {
+            validLowercase = true;
+          }
+
+          if ((arr[i][j].charCodeAt(0) < 97 || arr[i][j].charCodeAt(0) > 122) && !validNumber) {
+            validChars = false;
+          }
+        }
+
+    if (validLength && validLowercase && validNumber && validChars) {
+      isValid.push(true);
+    }
+  }
+
+  return isValid.length === arr.length;
+}
+
+console.log('\nAlternate solution - no regex:');
+console.log(authorizeList(['john123', 'alex222', 'sandra1']));    // returns true
+console.log(authorizeList(['john123', 'alex222', 'sandraW']));    // returns false because sandraW has no number
+console.log(authorizeList(['john_123', 'alex222', 'sandra1']));   // returns false because john_123 contains an invalid character
