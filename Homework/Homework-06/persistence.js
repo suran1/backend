@@ -51,6 +51,7 @@ function persist(num, count) {
 
 */
 
+// hard way
 function persistence (num) {
    
     var count = 0;
@@ -73,10 +74,31 @@ function multi (num) {
     return product;
 }
 
-
-
-
 console.log(persistence(39));    // 3
 console.log(persistence(4));     // 0
 console.log(persistence(25));    // 2
 console.log(persistence(999));   // 4
+
+
+// easier way
+function persist (num) {
+    var count = 0;
+    var result = num;
+    
+    
+    while (result >= 10) {
+        var arr = result.toString().split('');
+        result = arr.reduce(function (a, b){
+             return a * b;
+        });
+        count++;
+    } 
+    return count;
+} 
+
+
+console.log('\nUsing array.reduce function:\n')
+console.log(persist(39));    // 3
+console.log(persist(4));     // 0
+console.log(persist(25));    // 2
+console.log(persist(999));   // 4
