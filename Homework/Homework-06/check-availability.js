@@ -12,9 +12,12 @@ If no appointments are scheduled for currentTime, the function should return tru
 
 */
 
+
+//the hard way first...
 function checkAvailability (schedule, currentTime) {
     var availability = true;        
 
+    
     //console.log(schedule, currentTime);
     
     if (schedule.length !== 0) {  
@@ -24,7 +27,7 @@ function checkAvailability (schedule, currentTime) {
         availability = compareTimeAvailable(schedArr, curTime);    
     }
     return availability;
-} // end function 
+} 
 
 
 function convertToInt (time) {
@@ -36,7 +39,7 @@ function convertToInt (time) {
         time = convertSchedule(time);
     }
     return time;
-} // end function
+} 
 
 
 function convertTimeReq (timeReq) {
@@ -45,7 +48,7 @@ function convertTimeReq (timeReq) {
     time = parseInt(time, 10);
     
     return time;
-} // end function
+} 
 
 function convertSchedule (appointments) {
     
@@ -60,15 +63,22 @@ function convertSchedule (appointments) {
     }  
     
     return finalArr;
-} // end function
+} 
 
+/* Not used - but could be depending on how much you love Uncle Bob
+function convertToFlat (app) {
+    var finalArr = [];
+    var flat = finalArr.concat.apply(finalArr, app);
+    console.log(flat);
+}
+*/
 
 function compareTimeAvailable (sched, requested){
     var format = 0;
     var free = -1;
     
     if ((requested < sched[0]) || (requested > sched[sched.length-1]) || (sched.indexOf(requested) % 2) === 1) {
-        free = true;
+        free = true;    
         
     } else if ((sched.indexOf(requested) % 2) === 0) {
         format = sched[sched.indexOf(requested) + 1];
@@ -86,13 +96,13 @@ function compareTimeAvailable (sched, requested){
     }
     
     return free;
-}  // end function 
+}   
 
 // injects the requested time into the schedule array and sorts it, returning a new array
 function injectAndSort(arr, num) {
     
     var finalArr = arr;
-    finalArr.push(num);
+    finalArr.push(num);          // inject time in array
     
     finalArr.sort(function(a,b) {
            return a - b; 
@@ -120,3 +130,34 @@ console.log(checkAvailability([['09:30', '10:15'], ['12:20', '15:50']], '10:00')
 console.log(checkAvailability([['09:30', '10:15'], ['12:20', '15:50']], '13:24'));   // '15:50'
 console.log(checkAvailability([], '8:30'));   // true
 console.log(checkAvailability([['08:30', '09:15'], ['12:20', '15:50']], '09:00'));   // '10:15'
+
+
+// the easy (easier) way:
+
+function checkAvail (schedule, currentTime) {
+    var availability = true;   
+    var flatSchedule = [];
+    var testScedule = [];
+    
+    //console.log(schedule, currentTime);
+    
+    if (schedule.length !== 0) {  
+        
+        var curTime = convertTimeReq(currentTime);
+        var schedArr = flatSchedule.concat.apply(flatSchedule, schedule) ;
+        for (var i = 0; i < schedArr.length; i++) {
+            testScedule.push(convertTimeReq(schedArr[i]));
+        }
+        
+        availability = compareTimeAvailable(testScedule, curTime);    
+    }
+    return availability;
+} 
+
+
+console.log('\nEasier way - flatten schedule array via concat.apply')
+console.log(checkAvail([['09:30', '10:15'], ['12:20', '15:50']], '11:00'));   // true
+console.log(checkAvail([['09:30', '10:15'], ['12:20', '15:50']], '10:00'));   // '10:15'
+console.log(checkAvail([['09:30', '10:15'], ['12:20', '15:50']], '13:24'));   // '15:50'
+console.log(checkAvail([], '8:30'));   // true
+console.log(checkAvail([['08:30', '09:15'], ['12:20', '15:50']], '09:00'));   // '10:15'
