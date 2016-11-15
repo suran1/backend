@@ -59,9 +59,9 @@ console.log(findMissingNumber('1 2 4 5')) // 3
 function missingNumber (str) {
 
     var numCheck = str.split(' ').join('');  //create a string without spaces
-    var check = /^[0-9]+$/;                 // not used
+    var check = /^[0-9]+$/;                 
     var arr = [];
-    result = -1;
+    var result = -1;
     
     var arr = numCheck.split('').sort(function (a, b){
             return a - b;
