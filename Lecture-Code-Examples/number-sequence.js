@@ -93,19 +93,6 @@ function missingNumber (str) {
     }
     
     
-    
-//    
-//    
-//    
-//    console.log(arr);
-//    
-//    if (arr[0] === '') {
-//        result = 0;
-//    } else if (0) {
-//        return 'filler';
-//    }
-//    
-    
     return result;
     
     
