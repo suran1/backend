@@ -75,7 +75,8 @@ function findOld (arr) {
       age = arr[i].age;
         
         
-    } else if (arr[i].age === age) {                // If age[i] === age (i.e., equales the max age), there is more than 1 person with max age 
+    
+    } else if (arr[i].age === age) {                // If age[i] === age (i.e., equales the max age), there is more than 1 person with max age     
       sameAge = filter(arr, function (element) {    // Call function 'filter' and pass the entire array ('arr'), and an anonymous function 
         return element.age === arr[i].age;          // Note that it passes the entire function definition to filter function:
       });                                           //      function (element) { return element.age === arr[i].age; }  
@@ -100,7 +101,7 @@ function filter (arr, func) {                       // filter function accepts t
                                                     // Note that 'arr[j]' is the 'element' parameter in  the anonymous function ('func' function)
                                                     
                                                     // So... how this works: 
-                                                    //   the anonymous function (aka 'funk) defined in lines 80-81 then compares:
+                                                    //   the anonymous function (aka 'func') defined in lines 80-81 then compares:
                                                     //     - element.age (which is actually arr[j].age) to arr[i].age
                                                     //     - arr[i].age is the array object that matched the max age - the duplicate first  
                                                     //       encountered in the 'else if' comparision on line 79
@@ -108,11 +109,10 @@ function filter (arr, func) {                       // filter function accepts t
                                                     //        otherwise, it return 'false'
         
         output.push(arr[j]);                        // if 'func' function (aka 'the anonymous function declared in lines 80-81) returns true,
-    } //end if                                      // push arr[j] into output (the array for duplicates)
-  } // end for
-
-  return output;
-}
+    } //end if                                      // push arr[j] into output (the array for duplicates). When all array elements have been 
+  } // end for                                      // passed to 'func' (aka the anonymous function declared in lines 80-81), the filter function                                                   // returns 'output' to the original function call (line 80) and assigns it to the variable
+  return output;                                    // 'sameAge'.  sameAge has all the duplicate objects with the same max age, in the original 
+}                                                   // order.
 
 console.log(findOld(listOne));
 // [
