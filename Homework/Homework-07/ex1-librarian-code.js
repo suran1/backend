@@ -10,42 +10,47 @@ Your task is to implement a function okkOokOo, that would take the message as in
 
 function okkOokOo (str) {
     
-    var decoded = '';
-
-    
     var codeArr = [];
-     
+    var tempArr = str.split('? ');
 
-        var tempArr = str.split('? ');
-        console.log(tempArr);
-        codeArr = tempArr()
+    var decoder = {
+        'Ok, Ook, Ooo': 'H',
+        'Okk, Ook, Ok': 'e',
+        'Okk, Okk, Oo': 'l',
+        'Okk, Okkkk': 'o',
+        'Ok, Ooooo': ' ',
+        'Ok, Ok, Okkk': 'W',
+        'Okkk, Ook, O':'r',
+        'Okk, Ook, Oo':'d',
+        'Ook, Ooook':'!' 
+    }
+
+    for (var i = 0; i < tempArr.length; i++) {
+
+        // Check for exclamation point in array elements, and if it's there: 
+        // -- Slice the string for that array element so that excludes the exclamation point (!)
+        // -- Check if the array element contains the code for exclamation point - if it doesn't push the code for exclamation poin
+        //    onto the array
         
-        
-        var decoder {
-            'Ok, Ook, Ooo': 'H',
-            'Okk, Ook, Ok': 'e',
-            'Okk, Okk, Oo': 'l',
-            'Okk, Okkkk': 'o',
-            'Ok, Ooooo': ' ',
-            'Ok, Ok, Okkk': 'W',
-            'Okkk, Ook, O':'r',
-            'Okk, Ook, Oo':'d',
-            'Ook, Ooook':'!' 
-        }
-        
-        for (int i = 0; i < tempArr.length; i++) {
-            if tempArr[i] ===
+        if (tempArr[i].lastIndexOf('!') !== -1 ) {
+            tempArr[i] = tempArr[i].slice(0, (tempArr[i].length - 1));
             
-            
-        }
+            if (tempArr[i].lastIndexOf('Ook, Ooook') === -1){ 
+                tempArr.push('Ook, Ooook');
+            }
+        }       
+          
+        // match decoder property name to tempArr[i] and push the value into codeArr
+        for (var letterCode in decoder) {
+            if (letterCode === tempArr[i]){ 
+                codeArr.push(decoder[letterCode]);
+            }
+        }   
+       
+    } // end outer for
     
-    
-    
-    
-    
-    
-    
-    return decoded;   
+    return codeArr.join('');
+
 }
 
 
