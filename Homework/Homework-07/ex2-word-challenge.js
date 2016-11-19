@@ -13,11 +13,10 @@ Create a function that receives the three arguments in the order given above, wa
 function wantedWords (list, vowels, consonants, forbidLetters) {
     
    
-var answers = [];
-var arrayList = [];   // to hold strings in list converted to arrays
+    var answers = [];
+    var arrayList = [];   // to hold strings in list converted to arrays
     
     
-        
     for (var i = 0; i < list.length; i++) {
         
         var forbidFlag = false;
@@ -68,6 +67,8 @@ console.log(wantedWords(wordList, 1, 7, ['m', 'y']));     // ['strength']
 console.log(wantedWords(wordList, 3, 7, ['m', 'y']));     // ['afterwards', 'background', 'photograph', 'successful', 'understand']
 console.log(wantedWords(wordList, 3, 7, ['a', 's' , 'm', 'y']));    // []
 
+
+/*
 //altternate solution - easy way
 
 
@@ -106,3 +107,4 @@ function wantWords (list, vowels, consonants, forbidLetters) {
 //console.log(wantWords(wordList, 1, 7, ['m', 'y']));     // ['strength']
 //console.log(wantWords(wordList, 3, 7, ['m', 'y']));     // ['afterwards', 'background', 'photograph', 'successful', 'understand']
 //console.log(wantWords(wordList, 3, 7, ['a', 's' , 'm', 'y']));    // []
+*/
