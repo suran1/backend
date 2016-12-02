@@ -64,28 +64,29 @@
 
 // Bind  example
 //'use strict';
-//function myFunc() {
-//    return this.myProperty;
-//}
-//
-//var myObject = {
-//    myProperty: 'I am a property'
-//};
-//
-////var aFunc = myFunc.bind({myProperty: 'I am a property'});
-//
-//var aFunc = myFunc.bind(myObject);
-//console.log(aFunc());  // returns 'I am a property' 
-//
-//myObject.myProperty = 'I am a changed property';
-//console.log(aFunc());
-//
-//var bFunc = myFunc.bind({myProperty: 'I am yet another property});
-//console.log(bFunc());
+
+function myFunc() {
+    return this.myProperty;
+}
+
+var myObject = {
+    myProperty: 'I am a property'
+};
+
+//var aFunc = myFunc.bind({myProperty: 'I am a property'});
+
+var aFunc = myFunc.bind(myObject);
+console.log(aFunc());  // returns 'I am a property' 
+
+myObject.myProperty = 'I am a changed property';
+console.log(aFunc());
+
+var bFunc = myFunc.bind({myProperty: 'I am yet another property'});
+console.log(bFunc());
 
 
 //Object and this example
-//'use strict'
+//'use strict';
 
 var person = {
     firstName: 'Joe',
