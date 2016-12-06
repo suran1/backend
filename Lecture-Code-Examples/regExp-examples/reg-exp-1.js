@@ -27,8 +27,8 @@ console.log(String1.search(re4));
 //Replace accepts a regular expression as an argument and a new string. 
 // Replace is used with strings.
 
-var re5 = /grape/g;
-var re6 = /grape/;
+var re5 = /grape/g; // will search and replace all instances of 'grape'
+var re6 = /grape/;   // only searches and replaces for the first occurence of 'grape'
 console.log(firstString.replace(re5, 'apple'));
 console.log(firstString.replace(re6, 'apple'));
 
