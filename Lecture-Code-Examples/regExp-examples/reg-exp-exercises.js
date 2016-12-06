@@ -88,26 +88,101 @@ function dateChecker (myDate) {
 } 
 
 console.log('\nCheck dates: \n');
-console.log(dateChecker('01-09-2016 01:20')); true
-console.log(dateChecker('01-09-2016 01;20')); false
-console.log(dateChecker('01_09_2016 01:20')); false
-console.log(dateChecker('14-10-1066 12:00')); true
-console.log(dateChecker('Tenth of January')); false
+console.log(dateChecker('01-09-2016 01:20')); //true
+console.log(dateChecker('01-09-2016 01;20')); //false
+console.log(dateChecker('01_09_2016 01:20')); //false
+console.log(dateChecker('14-10-1066 12:00')); //true
+console.log(dateChecker('Tenth of January')); //false
 
 
 //Write a function that accepts a date and checks to see if the date is formatted '00/00/0000 00:00'
 
 function dateCheck(newDate) {
     
-    var myDate = /^\d{2}\/\d{2}\/\d{4}\s\d{2}:\d{2}$/;
+    var myDate = /^\d{2}\/\d{2}\/\d{4}\s\d{2}:\d{2}$/;  //escape the '/' 
+    var myDate2 = /^\d{2}[/]\d{2}[/]d{4}\s\d{2}:\d{2}$/;
     return myDate.test(newDate);
 }
 
 
 
 console.log('\nChecking a different date format: \n');
-console.log(dateCheck('01/09/2016 01:20')); true
-console.log(dateCheck('01/09/2016 01;20')); false
-console.log(dateCheck('01_09_2016 01:20')); false
-console.log(dateCheck('14/10/1066 12:00')); true
-console.log(dateCheck('Tenth of January')); false
+console.log(dateCheck('01/09/2016 01:20')); //true
+console.log(dateCheck('01/09/2016 01;20')); //false
+console.log(dateCheck('01_09_2016 01:20')); //false
+console.log(dateCheck('14/10/1066 12:00')); //true
+console.log(dateCheck('Tenth of January')); //false
+
+
+// Write a function that takes a string and returns the number of vowels in that string. Use a regular expressin to find the vowels in the string.
+
+function countVowels(str) {
+    var vowelCheck = /[aeiou]/gi;
+    
+    if (vowelCheck.exec(str) !== null) {
+        return str.match(vowelCheck).length;
+    } else {
+        return 0;
+    }
+    
+    // alternate solution
+//    var matchArray = str.match(vowelCheck);
+//    return matchArray ? matchArray.length : 0;  // if the matchArray.length is null
+}
+
+
+
+
+console.log('\nCount vowels in a string: \n');
+console.log(countVowels('bbababba'));   // 3
+console.log(countVowels('hellohellohellohello'));   // 8
+console.log(countVowels('krtmndsptzxvbmnwrt'));   // 0
+console.log(countVowels('asljdflsajfieworiuewnvndsfbawofejawefjiofajdsdf'));    // 16
+console.log(countVowels('asljdflsAjfiewOriuEwnvndsfbawofejawefjIOfajdsdf'));    // 16
+
+
+
+//Write a function that takes a string and returns the number of lowercase letters in that string. Use a regular expression to find the lowercase
+//letters in the string.
+
+function lowercaseCount(str1) {
+    var lower = /[a-z]/g;
+    var results = str1.match(lower);
+    
+    return results ? results.length : 0;
+    
+    
+}
+
+
+
+console.log('\nCount the number of lowercase letters in a string: \n');
+console.log(lowercaseCount('abc')); // 3
+console.log(lowercaseCount('abcABC123')); // 3
+console.log(lowercaseCount('abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~')); // 3
+console.log(lowercaseCount('')); // 0;
+console.log(lowercaseCount('ABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~')); // 0
+console.log(lowercaseCount('abcdefghijklmnopqrstuvwxyz')); // 26
+
+
+// Write a function that takes an array of filenames and returns an aray of only the PNG images.
+
+function findPNG(arr) {
+    var png = /\.png$/;
+    var finalArr = []; 
+  
+    for (var i = 0; i < arr.length; i++) {
+        if (png.test(arr[i])) {
+            finalArr.push(arr[i]);
+        }
+    }
+    
+    return finalArr; 
+}
+
+
+
+console.log('\nReturn an array of filenames with .png extensions\n');
+console.log(findPNG(['img01.jpeg', 'file.png', 'xrf214579.gif', 'image.png', 'dogs.tif']));   // ['file.png', 'image.png']
+console.log(findPNG(['asfldjasdfjpng.jpeg', 'pngsagsdfj.png', '.pngsdfasdfsaf.gif', '.pngasdfasifsda.png', 'uiuiuiiaisdfi.tif']));    
+// ['pngsagsdfj.png', '.pngasdfasifsda.png']
