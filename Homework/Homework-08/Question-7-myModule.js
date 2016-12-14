@@ -11,12 +11,19 @@ obj: {
 
 */
 
+// This has to have an IIFE because otherwise, none of the functions get invoked so then 
+// the obj variable never gets assigned it's values, and neithe does multily. However, 
+// If you don't use the IIFE it will work if you call it like this:
+//  myModule().printModuleName();   
+//  myMoule().mulitply(3,2); 
+// This is because you are invoking myModule
+
 var myModule = (function () {
     function printModuleName (){
             var obj = {
                         name: 'Very Awesome Module',
                         id: '12erer0u70'
-                       }
+                       };
 
              
             return obj.name;
