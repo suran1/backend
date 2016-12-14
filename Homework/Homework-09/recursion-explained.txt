@@ -1,0 +1,49 @@
+Trace out the following code sample by hand and determine the final output:
+    function gcd(a, b) {
+      if (b === 0) {
+        return a;
+      } else {
+        return gcd(b, a % b);
+      }
+    }
+
+    console.log(gcd(20, 12));
+    
+0. Initial call (call '0') is: console.log(gcd(20, 12)):
+      a = 20
+      b = 12
+      
+1. 1st recursive call: 
+    b = 12
+    a % b = 8   (20 % 12 = 8)
+    
+    so when 1st recursion function call is executed (line 2 in the code above)
+    
+    a = 12   // the 'b' value in the function call (gcd (b, a % b)) is now the 'a' parameter'
+    b = 8    // the result of the a % b calculation is the 'b' parameter in the function call
+
+    
+2. 2nd recursive call:
+    b = 8
+    a % b = 4    (12 % 8 = 4)
+    
+    so when the 2nd recursion function call is executed (line 2)
+    
+        a = 8   // the 'b' value in the function call (gcd b, a % b)) is now the 'a' parameter
+        b = 4   // the result of the a % b calculation is the 'b' parameter in the function call
+        
+
+3. 3rd recursive call:
+    b = 4          
+    a % b = 0     (8 % 4  = 0)
+    
+    so when the 3rd recursion function call is executed (line 2)
+        
+        a = 4
+        b = 0
+    
+    This time, line 3 evaluates to true (b equals 0 at this point), so the next line of code is
+    executed, which returns 'a' - which is 4. 4 is the gcd
+
+    
+    
