@@ -12,4 +12,6 @@ This folder contains Jodi DeGrave's homework for the U of A Global Campus Backen
 - [Homework-05](https://github.com/jdegrave/backend/tree/master/Homework/Homework-05)
 - [Homework-06](https://github.com/jdegrave/backend/tree/master/Homework/Homework-06)
 - [Homework-07](https://github.com/jdegrave/backend/tree/master/Homework/Homework-07)
+- [Homework-08](https://github.com/jdegrave/backend/tree/master/Homework/Homework-08)
+- [Homework-09](https://github.com/jdegrave/backend/tree/master/Homework/Homework-09)
 
