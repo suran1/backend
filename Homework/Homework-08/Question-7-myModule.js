@@ -20,15 +20,12 @@ obj: {
 
 var myModule = (function () {
     
-     
-    var obj = {
-                        name: 'Very Awesome Module',
-                        id: '12erer0u70'
-                };
+    var name = 'Very Awesome Module';
+    var id = '12erer0u70';
     
     
     var printModuleName = function (){
-            return obj.name;
+            return name;
         }
 
 
