@@ -19,13 +19,15 @@ obj: {
 // This is because you are invoking myModule
 
 var myModule = (function () {
-    function printModuleName (){
-            var obj = {
+    
+     
+    var obj = {
                         name: 'Very Awesome Module',
                         id: '12erer0u70'
-                       };
-
-             
+                };
+    
+    
+    var printModuleName = function (){
             return obj.name;
         }
 
@@ -44,3 +46,4 @@ var myModule = (function () {
 
 console.log(myModule.printModuleName());
 console.log(myModule.multiply(3, 2));
+
