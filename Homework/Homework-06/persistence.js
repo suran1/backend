@@ -13,43 +13,7 @@ persistence(4) === 0 // because 4 is already a one-digit number
 
 */
 
-/* Failed attempt at recursion 
-function persist(num, count) {
-    
-    var arr = num.toString().split('');
-    var product = 1;
-    
-    
-    if (typeof count !== 'number') {
-        count = 0;
-        console.log('count in first if statement: ', count);
-    } else {
-        console.log('this is count after ' + count +  ' time(s) through: ', count);
-    }
-    
-    if (arr.length <= 1 && count === 0) {           // if array has only element, count = 0;
-        return count;
-    } else {
-        for (var i = 0; i < arr.length; i++) {
-            product = product * arr[i];
-            console.log(product);
-        }
-        count++;
-        console.log('count is: ', count);
-        console.log('product is: ', product);
-        
-        if (product > 9) {    
-            persistence(product, count);
-        } else {
-            console.log('final count value: ', count);
-        }    
-    
-        
-    } // end outer else
-    
-} // end function
 
-*/
 
 // hard way
 function persistence (num) {
