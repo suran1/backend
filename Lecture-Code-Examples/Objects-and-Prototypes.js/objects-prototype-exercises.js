@@ -317,7 +317,17 @@ console.log(circle.area());
 
 
 function Pentagon () {
-  Shape.call(this, side) {
-    
-  }
+   Triangle.call(this, side);
 }
+
+Pentagon.prototype = new Triangle;
+
+Pentagon.prototype.area = function () {
+
+  var s = (this.side[0] + this.side[1] + this.side[2]) / 2;
+  var a = (Math.sqrt(s* (s - this.side[0])  * (s - this.side[1]) * (s - this.side[2])) * 5);
+  return a;;
+}
+
+var pentagon = new Pentagon ([3, 3, 3]);
+// console.log(pentagon);
