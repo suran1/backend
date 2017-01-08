@@ -15,4 +15,5 @@ This folder contains Jodi DeGrave's homework for the U of A Global Campus Backen
 - [Homework-08: Scope & Closure Modules](https://github.com/jdegrave/backend/tree/master/Homework/Homework-08)
 - [Homework-09: Recursion](https://github.com/jdegrave/backend/tree/master/Homework/Homework-09)
 - [Homework-10: Web scraping, timer/clock, object(constructor), module, shell scripting](https://github.com/jdegrave/backend/tree/master/Homework/Homework-09)
+- [Homework-11: nodeschool.io - Exercises 1-5](https://github.com/jdegrave/backend/tree/master/nodeschool)
 
