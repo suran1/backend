@@ -8,7 +8,7 @@
 
 //Slice off the first and second index value of process.argv since
 // the index 0 is always node, and index 2 is always the path to this
-// js file. Index 2 marks the beginning of user input
+// js file. Index 2 marks the beginning of user input.  Index 2 is an array.
 var arr = (process.argv).slice(2, (process.argv).length);
 var total = 0;
 
