@@ -48,7 +48,7 @@ function testCar(carObj, specObj) {
   var correct = true;
   if (carObj.wheels !== specObj.wheels){
       correct = false;
-      console.log('wheels is', correct);
+      console.log('wheels are', correct);
   }
 
   if (specObj.maxSpeed.indexOf(carObj.maxSpeed) === -1){

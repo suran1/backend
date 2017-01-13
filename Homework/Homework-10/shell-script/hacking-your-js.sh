@@ -8,7 +8,7 @@
 #    -- In the happy-fun-time folder, create a new file named do-not-open.js
 #    -- In the do-not-open.js file, create a javascript function that logs 'ALL YOUR TERMINAL ARE BELONG TO US'.
 #    -- Execute the do-not-open.js file
-# 5. Commit and push all changes to a new GitHub repository from the command line	
+# 5. Commit and push all changes to a new GitHub repository from the command line
 
 
 
@@ -17,5 +17,5 @@ cd $HOME && mkdir ./happy-fun-time && cd $_ && touch do-not-open.js &&  echo "(f
 node ./do-not-open.js
 
 #Some sources say the following line should be placed at the tope of the JS file (I think): #!/usr/bin/env node
-#This didn't run the script when it was in the 'do-not-open-js' file. 
-#When combined with the 'node ./do-not-open.js' file it works. Intersting...
+#This didn't run the script when it was in the 'do-not-open-js' file.
+#When combined with the 'node ./do-not-open.js' file it works. Interesting...
