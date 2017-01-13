@@ -24,7 +24,7 @@ var myMod = require('./module');
 
 // exporting way - another examples. A pretend database connection
 
-// var dbConfig = require('.module');
+// var dbConfig = require('./module');
 // db.connect(dbConfig.PORT, dbConfig.dbCreds.UN);
 
 
