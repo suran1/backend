@@ -9,7 +9,7 @@
 
 
 // There are ways to to export the module using constructor notation
-// If you use it this way, it stantiates one module object that is the same thing
+// If you use it this way, it instantiates one module object that is the same thing
 // throughout the application. Only get one instantiation, that you can mutate
 // this is the most common way for constructor
 
