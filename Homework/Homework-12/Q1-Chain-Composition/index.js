@@ -24,11 +24,11 @@ function requestName () {
 function requestBreed () {
   return new Promise(function (resolve, reject){
     animalInfo.getBreed(function (err, breed){
-    if (err){
-      reject(err);
-    }
-    resolve(breed);
-    });
+      if (err){
+        reject(err);
+      }
+      resolve(breed);
+      });
   });
 }
 
@@ -44,8 +44,7 @@ function requestCoatColor () {
   });
 }
 
-requestName()
-.then(function (nameStr) {
+requestName().then(function (nameStr) {
   console.log(nameStr);
   return requestBreed(nameStr);
 }).then(function(breed){
