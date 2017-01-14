@@ -6,7 +6,7 @@ var fs = require('fs');
 
 function findTheDinosaurs(filename) {
   return new Promise(function (resolve, reject){  // r
-      fs.readFile('my-file.txt', 'utf-8', function (err, data));
+      fs.readFile('my-file.txt', 'utf-8', function (err, data){;
       if (err) {
         reject(err);  // if error pass it to reject
       }

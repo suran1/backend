@@ -7,7 +7,7 @@ var appendFileSync = require('./api.js');
 
 function requestName () {
   return new Promise(function (resolve, reject){
-    api.getName(function (err, name){
+    appendFileSync.getName(function (err, name){
       resolve(name);
 
       // remove resolve(name) and just have 'reject'
@@ -17,7 +17,7 @@ function requestName () {
 
 
 requestName().then(function (nameStr) {
-  console.log(str);
+  console.log(nameStr);
 }).catch(function(err) {
   console.log(err);
 });
