@@ -15,13 +15,11 @@ function requestName () {
         reject(err);
       }
       resolve(name);
-
-      // remove resolve(name) and just have 'reject' to test err condition
     });
   });
 }
 
-function requestBreed () {
+function requestBreed (name) {
   return new Promise(function (resolve, reject){
     animalInfo.getBreed(function (err, breed){
       if (err){
@@ -33,7 +31,7 @@ function requestBreed () {
 }
 
 
-function requestCoatColor () {
+function requestCoatColor (breed) {
   return new Promise(function (resolve, reject){
     animalInfo.getCoatColor(function (err, coatColor){
       if (err) {
@@ -45,27 +43,14 @@ function requestCoatColor () {
 }
 
 requestName().then(function (nameStr) {
-  console.log(nameStr);
+  //console.log(nameStr);
   return requestBreed(nameStr);
-}).then(function(breed){
-  console.log(breed);
+}).then(function (breed){
+  //console.log(breed);
   return requestCoatColor(breed);
 }).then(function(coatColor){
+  //console.log();
   console.log(coatColor);
 }).catch(function(err) {
   console.log(err);
 });
-
-
-
-
-
-
-// createFile('my-file2.txt', 'Create a file and text')
-// .then(function(str){
-//   console.log(str);
-//   return appendFile('my-file2.txt', 'another line of text');
-// })
-// .then(function(str){
-//   console.log(str);
-// });
