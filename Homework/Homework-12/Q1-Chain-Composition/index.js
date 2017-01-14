@@ -21,7 +21,7 @@ function requestName () {
 
 function requestBreed (name) {
   return new Promise(function (resolve, reject){
-    animalInfo.getBreed(function (err, breed){
+    animalInfo.getBreed(name, function (err, breed){
       if (err){
         reject(err);
       }
@@ -33,7 +33,7 @@ function requestBreed (name) {
 
 function requestCoatColor (breed) {
   return new Promise(function (resolve, reject){
-    animalInfo.getCoatColor(function (err, coatColor){
+    animalInfo.getCoatColor(breed, function (err, coatColor){
       if (err) {
         reject(err);
       }
