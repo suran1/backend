@@ -60,10 +60,12 @@ readFile(file)
         return countWords(data, like); })
     .then(function (data) {
         countWords(data, years);
-        console.log(totalCount)})
+        console.log(totalCount);
+      })
     .catch(function(err){
       console.error(err);
   });
+
 
 
 /*Alternate Solution*/

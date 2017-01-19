@@ -50,8 +50,7 @@ function countWords (contents, arr){
 readFile(file)
     .then(function(data)  {
         countWords(data, arr);
-                console.log(totalCount)
-        })
+        console.log(totalCount)})
     .catch(function(err){
          console.error(err);
     });
