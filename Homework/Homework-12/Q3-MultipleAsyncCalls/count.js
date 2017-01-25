@@ -65,10 +65,3 @@ readFile(file)
     .catch(function(err){
       console.error(err);
   });
-
-
-
-/*Alternate Solution*/
-
-// readFile(file):
-//     .then(function(data))
