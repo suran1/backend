@@ -18,4 +18,4 @@ This folder contains Jodi DeGrave's homework for the U of A Global Campus Backen
 - [Homework-11: nodeschool.io - Exercises 1-5](https://github.com/jdegrave/backend/tree/master/nodeschool)
 - [Homework-12: Promises](https://github.com/jdegrave/backend/tree/master/Homework/Homework-12)
 - [Homework-13: Web Server](https://github.com/jdegrave/backend/tree/master/Homework/Homework-13)
-- [Homework-14: Express](https://github.com/jdegrave/express-ex1)
+- [Homework-14: Express](https://github.com/jdegrave/backend/tree/master/Homework/Homework-14)
