@@ -37,7 +37,7 @@ http.createServer(function(request, response) {  //request and response are OBJE
     });
 
     request.on('end', function () {
-        var jsonBody = JSON.parse(body);   // we decided is accepting json
+        var jsonBody = JSON.parse(body);   // we decided to accept json
 
         // to test the next lines, put this in a separate terminal window from the server:
         // curl -i -X POST -H 'Content-Type: application/json' -d '{"firstname" : "Sara"}' localhost:5000/person
