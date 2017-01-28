@@ -65,20 +65,31 @@ router.put('/:id', function (request, response) {
     // Ask Blake if that matters.
 
     var id = request.body.id;
+    var routeID = request.params.id;
 
 
-    //check if puppy id exists, if so proceed with update
+    //check that PUT request is formulated correctly - i.e., the number in the
+    // request URL matches the request.body.id (the ID to update). If it doesn't
+    // refuse PUT request
+    var match = checkRoute(id, routeID);
 
-    var exists = checkPuppy(puppies, id, 'PUT');
-
-    if (exists.state && exists.index !== -1) {
-        var puppy = updatePuppy(puppies, request.body, exists.index);
-        response.status(200).json(puppy);
+    if (!match){
+      response.status(403).send('PUT request URL does not match ID to update.\n'
+                                + 'Update canceled.');
 
     } else {
-        response.status(404).send('Invalid puppy ID. Update canceled.');
-    }
 
+        //check if puppy id exists, if so proceed with update
+        var exists = checkPuppy(puppies, id, 'PUT');
+
+        if (exists.state && exists.index !== -1) {
+            var puppy = updatePuppy(puppies, request.body, exists.index);
+            response.status(200).json(puppy);
+
+        } else {
+            response.status(404).send('Invalid puppy ID. Update canceled.');
+        }
+    }
 });
 
 
@@ -128,7 +139,10 @@ function updatePuppy (puppyArray, newPuppy, i) {
       return puppy;
 }
 
-
+// ensure the URL request received for PUT matches the bodyID to update
+function checkRoute (bodyID, paramsID) {
+  return ( paramsID.toString() === bodyID.toString() ) ? true : false;
+}
 
 
 module.exports = router;
