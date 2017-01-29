@@ -19,8 +19,8 @@ app.use(bodyParser.json());        // app.use statements are processed in the or
 app.use('/', routes);              // when we start the server, this will grab all our routes and set them up for us
 
 app.listen(3000, function() {
-  console.log('Server listening on port 3000...')
-})
+  console.log('Server listening on port 3000...');
+});
 
 // could also write:
 //  app.listen(3000);

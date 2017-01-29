@@ -15,6 +15,17 @@ router.use('/puppies', puppies);  // '/puppies' is the route, 'puppies is the fu
 // catches all other GET requests
 router.get('*', function(request, response){
   response.status(404).send('Sorry - we don\'t have this');
-})
+});
+
+router.post('*', function (request, response){
+    response.status(404).send('POST not formed properly. Request denied.');
+});
+router.put('*', function (request, response){
+    response.status(404).send('PUT request formed improperly. Request denied.');
+});
+
+router.delete('*', function (request, response){
+    response.status(403).send('No deletions permitted. Delete request deined.');
+});
 
 module.exports = router;

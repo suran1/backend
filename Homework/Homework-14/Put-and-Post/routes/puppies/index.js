@@ -32,6 +32,7 @@ router.post('/', function (request, response) {
   var addPuppy = checkPuppy(puppies, id, 'POST');  // check to see if the id is already taken
 
   if (addPuppy.state){
+    request.body.id = generateID(puppies);
     puppies.push(request.body);
     response.status(200).json(request.body);
 
@@ -94,7 +95,6 @@ router.put('/:id', function (request, response) {
 
 
 
-
 //check to see if the puppy already exists by checking the ID sent
 function checkPuppy (pupArr, id, method) {
   var update = { state: true, 'index': -1 };   //flag to see if pup ID already exists
@@ -144,5 +144,20 @@ function checkRoute (bodyID, paramsID) {
   return ( paramsID.toString() === bodyID.toString() ) ? true : false;
 }
 
+router.post('*', function(request, response) {
+  response.send('POST error. Check request formulation. Do not send IDs.');
+});
+
+router.get('*', function(request, response){
+  response.send('GET error. No query strings or additional parameters.');
+});
+
+router.put('*', function (request, response){
+    response.send('PUT error. Send correct parameters.');
+});
+
+router.delete('*', function (request, response){
+    response.status(403).send('No deletions permitted.');
+});
 
 module.exports = router;
