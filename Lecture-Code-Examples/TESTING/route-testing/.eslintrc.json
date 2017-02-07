@@ -1,0 +1,15 @@
+{
+    "extends": "airbnb-base",
+    "env": {
+      "node": true,
+      "mocha": true
+    },
+    "plugins": [
+        "import",
+        "mocha"
+    ],
+    "rules": {
+      "no-var":0
+    }
+
+}
