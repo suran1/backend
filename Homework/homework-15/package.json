@@ -1,0 +1,22 @@
+{
+  "name": "Homework-15",
+  "version": "1.0.0",
+  "description": "- Create an express application that does anything you want it to do - It must include:   - Unit tests   - GET and POST routes   - At least 1 external NPM module (Express / Mocha / Jasmine do not count!)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
+    "wunderground": "0.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.2.0"
+  }
+}
