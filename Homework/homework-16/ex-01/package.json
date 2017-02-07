@@ -1,0 +1,24 @@
+{
+  "name": "exercise-01",
+  "version": "1.0.0",
+  "description": "feb 4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdegrave/exercise-01.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdegrave/exercise-01/issues"
+  },
+  "homepage": "https://github.com/jdegrave/exercise-01#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1"
+  }
+}
