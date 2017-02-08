@@ -1,21 +1,16 @@
-var router = require('express').Router();
-var cities = require('./cities');
+var express = require('express');
+var bodyParser = require('body-parser');
+var routes = require('./routes');
 
+var app = express();
 
+app.use(bodyParser.json());
+app.use ('/', routes);
 
-router.use('/cities', cities);
-router.get('/', function (req, res){
-     res.status(200).send('Welcome to City List');
+app.listen(3000, function(){
+  console.log('Listening on port 3000...');
 });
 
-
-
-
-
-
-
-
-
-
-
-module.exports = router;
+// this passes our running application to our tests - this auto starts the
+// server when we have test code
+module.exports = app;

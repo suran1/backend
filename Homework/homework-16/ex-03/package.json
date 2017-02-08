@@ -1,0 +1,26 @@
+{
+  "name": "ex-03",
+  "version": "1.0.0",
+  "description": "- Create a new project directory and setup ESLint from scratch using a pre-defined style guide. - Run the linter on your project - Setup EditorConfig as well",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./*.spec.js",
+    "lint": "eslint ./"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-mocha": "^4.8.0",
+    "mocha": "^3.2.0"
+  }
+}

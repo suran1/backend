@@ -11,7 +11,7 @@ router.get('/:city', function (req, res){
 
   for (var i = 0; i < cities.length; i++){
     if (cities[i].city.toString() === req.params.city.toString()){
-      city = cities[i].city;
+      city = cities[i];
     }
   }
   res.status(200).json(city)
