@@ -22,3 +22,7 @@ app.get('/', function(req, res){
 app.listen(3000, function (){
   console.log('Server listening on port 3000...');
 });
+
+// this passes our running application to our tests - this auto starts the
+// server when we have test code
+module.exports = app;

@@ -18,7 +18,7 @@ router.get('/', chocolate, function (request, response){
 //  localhost:3000/chocolate/vanilla  ... why?
 // because in the root index.js on line 17 the code states:
 // app.use('/chocolate', routes);
-// so ... even though /chocolate is not an actually folder - remember we dictate
+// so ... even though /chocolate is not an actual folder - remember we dictate
 // the routes... so when it comes to the route folder, it thinks it's going to
 // the /chocolate folder. So the path to vanilla has to start from chocolate/
 router.get('/vanilla', vanilla, function(req, res){

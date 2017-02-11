@@ -72,8 +72,9 @@ describe('Routes', function (){
             it('should return first city with matching city name when successful', function (done){
                 var name = {id: 1, city: 'Springdale', state: 'AR', almanac: 'true'};
                 chai.request(app)
-                    .get('/cities/:city')
+                    .get('/cities/Springdale') // add city here - make it identical to get request in postman
                     .end(function(err, res){
+                        //console.log(res.body);
                         expect(err).to.be.null;
                         expect(res).to.be.json;
                         expect(res).to.be.an.object;
@@ -81,8 +82,7 @@ describe('Routes', function (){
                         expect(res).to.not.equal(undefined);
                         expect(res.json).to.equal(undefined);
                         expect(res).to.not.equal('');
-                        // how to test for object returned?  this works in PostMan!
-                        //expect(res).to.have.property('city');
+                        expect(res.body).to.deep.equal(name);
                         done();
                     });
             });

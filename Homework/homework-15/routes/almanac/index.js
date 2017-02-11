@@ -7,14 +7,29 @@ var wunderground = require('wunderground')('a1234a5ae0147cb5');
 
 
 router.get('/', function(req, res) {
-    var almaCities = [];
-    for (var i = 0; i < cities.length; i++) {
-      if (cities[i].almanac === 'true') {
-        almaCities.push(cities[i]);
-      }
-    }
 
-   res.status(201).json(almaCities);
+    var almaCities = cities.filter(function(city){
+        if (city.almanac === 'true') {
+            return city;
+        }
+    });
+
+
+    var newArr = [];
+    var otherArr = almaInfo.getAlmanacInfo(almaCities);
+    newArr.push(almaInfo.getAlmanacInfo(almaCities));
+    console.log(newArr);
+    console.log(otherArr);
+
+   res.status(200).json(otherArr);
+
+   // Promise.all(
+   //     almaInfo.getAlmanacInfo(almaCities)
+   // ).then(function(cityArr){
+   //      res.status(200).json(cityArr);
+   // }).catch(function (err){
+   //     res.status(500).send('Something went wrong.');
+   // });
 });
 
 router.get(/\/q/, function (req, res) {
