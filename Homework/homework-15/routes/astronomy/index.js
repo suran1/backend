@@ -1,27 +1,25 @@
-// weather data provided by www.wunderground.com
 var cities = require('../cities');
-var almaInfo = require ('../module');
+var astroInfo = require ('../module');
 var router = require('express').Router();
 var wunderground = require('wunderground')('a1234a5ae0147cb5');
 // alternate key: ('12d30f869f013572')
 
-
 router.get('/', function(req, res) {
 
     // get the cities that have almanac set to true
-    var almaCities = cities.filter(function(city){
-        if (city.almanac === true) {
+    var astroCities = cities.filter(function(city){
+        if (city.astronomy === true) {
             return city;
         }
     });
 
     // required for wunderground API
-    var actions = ['almanac'];
+    var actions = ['astronomy'];
 
 
 
     //map all the results from each city into an array of promises
-    var allCityData = almaCities.map(function (query) {
+    var allCityData = astroCities.map(function (query) {
         return new Promise(function (resolve, reject) {
             wunderground.execute(actions, query, function (err, results) {
                 if (err){
@@ -66,7 +64,7 @@ router.get(/\/q/, function (req, res) {
 
 
   if (query.city !== "" && query.state !== "") {
-    var actions = ['almanac'];
+    var actions = ['astronomy'];
     var info = {};
 
     wunderground.execute(actions, query, function (err, results){
@@ -86,6 +84,7 @@ router.post('/', function (req, res) {
   var id = req.body.id;
   var city = req.body.city;
   var state = req.body.state;
+  var astronomy = req.body.astronomy;
   var add = true;
   var city;
 
@@ -103,11 +102,16 @@ router.post('/', function (req, res) {
     console.log('state is: ', add);
   }
 
+  if (astronomy == ''){
+    add = false;
+    console.log('astronomy is: ', add);
+  }
+
 
   if (add) {
     cities.push(req.body);
 
-    city = almaInfo.getCityInfo(id);
+    city = astroInfo.getCityInfo(id);
     if (city){
       res.status(200).json(city);
     } else {
@@ -126,6 +130,5 @@ router.post('/', function (req, res) {
 router.post('*', function (req, res){
   res.status(404).send('Invalid POST request!');
 });
-
 
 module.exports = router;

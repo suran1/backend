@@ -1,5 +1,6 @@
 var router = require('express').Router();
 var almanac = require('./almanac');
+var astronomy = require('./astronomy');
 
 router.get('/', function (req, res){
     //Express lets you chain certain methods
@@ -7,7 +8,7 @@ router.get('/', function (req, res){
 });
 
 router.use('/almanac', almanac);
-
+router.use('/astronomy', astronomy);
 
 router.get('*', function (req, res){
   res.status(404).send('Uh-oh. Not found.');

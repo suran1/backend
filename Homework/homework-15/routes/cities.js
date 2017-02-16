@@ -3,21 +3,24 @@ var cities = [
         id: 1,
         city: 'Springdale',
         state: 'AR',
-        almanac: 'true'
+        almanac: false,
+        astronomy: true
         //actions : ['almanac']
     },
     {
         id: 2,
         city: 'Boston',
         state: 'MA',
-        almanac: 'true'
+        almanac: false,
+        astronomy: true
         //actions: ['almanac']
     },
     {
         id: 3,
         city: 'Tulsa',
         state: 'OK',
-        almanac: 'true'
+        almanac: true,
+        astronomy: false
         //actions : ['almanac']
 
     },
@@ -26,7 +29,8 @@ var cities = [
         id: 4,
         city: 'New York',
         state: 'NY',
-        almanac: 'true'
+        almanac: true,
+        astronomy: false
         //actions : ['almanac']
 
     },
@@ -35,15 +39,17 @@ var cities = [
         id: 5,
         city: 'Phoenix',
         state: 'AZ',
-        almanac: 'false'
+        almanac: 'false',
+        astronomy: true
         //actions: ['almanac']
     },
 
     {
-        id: 5,
+        id: 6,
         city: 'Seattle',
         state: 'WA',
-        almanac: 'true'
+        almanac: true,
+        astronomy: false
         //actions: ['almanac']
     }
 ];

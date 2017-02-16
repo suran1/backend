@@ -39,22 +39,22 @@ console.log(contents);
   8. Print contents of the read file.
 */
 
-console.log('BEFORE ASYNC CALL');
+console.log('BEFORE ASYNC CALL - NO ERROR EXAMPLE');
 fs.readFile(__dirname + '/text.txt', 'utf-8', function (err, data){
-  console.log('READ FILE CALLBACK');
+  console.log('READ FILE CALLBACK - NO ERROR EXAMPLE');
   console.log(data);
 });
-console.log('AFTER ASYNC CALL');
+console.log('AFTER ASYNC CALL - NO ERROR EXAMPLE');
 
 
 // Error Example
 console.log ('\nError example');
-console.log('BEFORE ASYNC CALL');
+console.log('BEFORE ASYNC CALL (ERROR EXAMPLE)');
 fs.readFile(__dirname + '/doesnotexist.txt', 'utf-8', function (err, data){
   if (err) {
     console.error('this file does not exist', err);
   }
-  console.log('READ FILE CALLBACK');
+  console.log('READ FILE CALLBACK - ERROR EXAMPLE');
   console.log(data);
 });
-console.log('AFTER ASYNC CALL');
+console.log('AFTER ASYNC CALL (ERROR EXAMPLE)');
