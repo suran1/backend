@@ -1,0 +1,114 @@
+[
+  {
+    "str": "whisper",
+    "userid": "1234",
+    "path": "/uppercase",
+    "method": "POST",
+    "timeStamp": 1487454915743,
+    "valid": false
+  },
+  {
+    "str": "whisper",
+    "userid": "5678",
+    "path": "/uppercase",
+    "method": "POST",
+    "timeStamp": 1487454921715,
+    "valid": false
+  },
+  {
+    "str": "whisper",
+    "userid": "8989",
+    "path": "/uppercase",
+    "method": "POST",
+    "timeStamp": 1487454927072,
+    "valid": false
+  },
+  {
+    "str": "whisper",
+    "userid": "8989",
+    "path": "/uppercase",
+    "method": "POST",
+    "timeStamp": 1487454937574,
+    "valid": true
+  },
+  {
+    "str": "whisper",
+    "userid": "8989",
+    "path": "/uppercase",
+    "method": "POST",
+    "timeStamp": 1487454947432,
+    "valid": true
+  },
+  {
+    "str": "whisper",
+    "userid": "1234",
+    "path": "/uppercase",
+    "method": "POST",
+    "timeStamp": 1487454977225,
+    "valid": true
+  },
+  {
+    "str": "whisper",
+    "userid": "5678",
+    "path": "/uppercase",
+    "method": "POST",
+    "timeStamp": 1487454991296,
+    "valid": true
+  },
+  {
+    "str": "whisper",
+    "userid": "5678",
+    "path": "/lowercase",
+    "method": "POST",
+    "timeStamp": 1487454999577,
+    "valid": true
+  },
+  {
+    "str": "whisper",
+    "userid": "5678",
+    "path": "/lowercase",
+    "method": "POST",
+    "timeStamp": 1487455007898,
+    "valid": true
+  },
+  {
+    "str": "whisper",
+    "userid": "5678",
+    "path": "/uppercase",
+    "method": "POST",
+    "timeStamp": 1487455014851,
+    "valid": true
+  },
+  {
+    "str": "whisper",
+    "userid": "1234",
+    "path": "/uppercase",
+    "method": "POST",
+    "timeStamp": 1487455032136,
+    "valid": true
+  },
+  {
+    "str": "whisper",
+    "userid": "1234",
+    "path": "/uppercase",
+    "method": "POST",
+    "timeStamp": 1487455038305,
+    "valid": false
+  },
+  {
+    "str": "whisper",
+    "userid": "1234",
+    "path": "/uppercase",
+    "method": "POST",
+    "timeStamp": 1487455045430,
+    "valid": false
+  },
+  {
+    "str": "whisper",
+    "userid": "1234",
+    "path": "/uppercase",
+    "method": "GET",
+    "timeStamp": 1487455054443,
+    "valid": true
+  }
+]
