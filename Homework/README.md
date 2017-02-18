@@ -22,3 +22,4 @@ This folder contains Jodi DeGrave's homework for the U of A Global Campus Backen
 - [Homework-15: Express App with TDD](https://github.com/jdegrave/backend/tree/master/Homework/homework-15)
 - [Homework-16: Express App with HTTP tests, ESLint, EditorConfig,project structure scaffold](https://github.com/jdegrave/backend/tree/master/Homework/homework-16)
 - [Homework-17: Express App to spec with HTTP tests](https://github.com/jdegrave/backend/tree/master/Homework/homework-17)
+- [Homework-18: Error Handling Exercises](https://github.com/jdegrave/backend/tree/master/Homework/homework-18)
