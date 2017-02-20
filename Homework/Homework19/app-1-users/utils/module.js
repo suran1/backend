@@ -77,7 +77,7 @@ function keysCheck (addObjKeys, expectedObjKeys){
 }
 
 function findUser (obj, userList) {
-    console.log('obj username in findUser', obj.username);
+
     var isUser = userList.map(function(element) {
         return element.username }).indexOf(obj.username);
 
@@ -85,8 +85,7 @@ function findUser (obj, userList) {
 }
 
 function matchPassword(index, userList, obj) {
-    console.log('userList at index password: ', userList[index].password);
-    console.log('obj password: ', obj.password );
+
     if (userList[index].password.toString() === obj.password.toString()) {
         return true;
     } else {
@@ -97,14 +96,13 @@ function matchPassword(index, userList, obj) {
 
 function validateUser (obj, userList, callback){
     var index = findUser(obj, userList);
-    console.log('index', index);
-    console.log('userList at index: ', userList[index]);
+
     var isErr = false;
     if (index === -1) {
         isErr = true;
     } else {
          var result = matchPassword(index, userList, obj);
-         console.log('result in validate user after match password: ', result);
+        
          if (!result){
              isErr = true;
          } else {

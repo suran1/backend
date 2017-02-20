@@ -15,15 +15,12 @@ router.get('/', function (req, res){
 
 
 router.get('/user/:id?', function(req, res) {
-    console.log('in user/:id path');
+
     var id = req.params.id;
     var queryInfo = req.query;
-    console.log('id ', id);
-    console.log('queryInfo: ', queryInfo);
-    console.log('req.params.username ', req.params.username);
-    console.log(users);
+
     if (queryInfo === undefined){
-        console.log('in id part of if statement...');
+
         userInfo.matchID(id, users, function(err, data){
             if (err) {
                 res.status(404).send(err.toString());
@@ -32,22 +29,17 @@ router.get('/user/:id?', function(req, res) {
             }
         });
     } else {
-        console.log('inside else for username password check');
-        console.log('usersCredKeys', userInfo.userCredKeys);
+
         var hasValidKeys = userInfo.checkNewUser(queryInfo, userInfo.userCredKeys);
-        console.log('hasValidKeys: ' , hasValidKeys);
+
 
         if(!hasValidKeys) {
             var loginError = new Error ('Invalid login request');
             res.status(400).send(loginError);
 
         } else {
-            console.log('has valid keys...');
             userInfo.validateUser(queryInfo, users, function (err, data){
-                console.log('have results of login check...');
-
                 if (err) {
-                    console.log('should print out error here');
                     res.status(400).send(err.toString());
                 } else {
                     res.status(200).json(data);
@@ -72,24 +64,16 @@ router.post('/', function (req, res){
 
 router.post('/user', function (req, res) {
     var login = req.body;
-    console.log(login);
-    console.log('inside post user path for username password check');
-    console.log('usersCredKeys', userInfo.userCredKeys);
     var hasValidKeys = userInfo.checkNewUser(login, userInfo.userCredKeys);
-    console.log('hasValidKeys: ' , hasValidKeys);
+
 
     if(!hasValidKeys) {
         var loginError = new Error ('Invalid login request');
-        //res.status(400).send(loginError);
         res.status(400).json(loginError);
     } else {
-        console.log('has valid keys...');
-        userInfo.validateUser(login, users, function (err, data){
-            console.log('have results of login check...');
 
+        userInfo.validateUser(login, users, function (err, data){
             if (err) {
-                console.log('should print out error here');
-                //res.status(400).send(err.toString());
                 res.status(400).send(err.toString());
             } else {
                 res.status(200).json(data);

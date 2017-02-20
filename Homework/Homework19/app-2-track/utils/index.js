@@ -10,7 +10,6 @@ var keyInfo = {
 
 function checkKeys (reqKeys, callback) {
     var queryKeys = Object.keys(reqKeys);
-    console.log('query keys: ', queryKeys);
 
     var valid = queryKeys.map(function (elem){
         if (keyInfo.expectedKeys.indexOf(elem) === -1) {
@@ -23,17 +22,14 @@ function checkKeys (reqKeys, callback) {
     }
 
     if (valid.indexOf(false) !== -1 ) {
-        console.log('Setting bad keys callback error');
         var badKeysError = new Error ('Invalid keys');
         callback(badKeysError);
 
     } else {
-        console.log('In the ELSE of checkKeys');
         var userCredentials = {};
 
         for (prop in reqKeys){
             userCredentials[prop] = reqKeys[prop];
-            console.log(userCredentials[prop]);
         }
 
         callback(null, userCredentials);
@@ -47,10 +43,7 @@ function checkDate(userObj, callback) {
 
     if (moment(userObj.currentDate, 'YYYY-MM-DD').isValid) {
         var accessDate = moment(userObj.currentDate).format('YYYY-MM-DD');
-        console.log('accessDate: ', accessDate);
-
         var todayDate = moment().format('YYYY-MM-DD');
-        console.log('todayDate:' , todayDate);
 
         if (moment(accessDate).isSame(todayDate)){
             validDate = true;
@@ -68,21 +61,17 @@ function checkDate(userObj, callback) {
 
 
 function requestLimitCheck (userObj, callback) {
-    console.log('in request limit check starting arr value: ', keyInfo.userAccessArray);
     var userNameIndex = keyInfo.userAccessArray.map(function(elem) {
          return elem.username; }).indexOf(userObj.username);
 
-    console.log(userNameIndex);
 
     if (userNameIndex === -1){
         userObj.count = 1;
         keyInfo.userAccessArray.push(userObj);
-        console.log(keyInfo.userAccessArray);
         userNameIndex = keyInfo.userAccessArray.length - 1;
-        console.log(userNameIndex);
+
     } else {
         keyInfo.userAccessArray[userNameIndex].count += 1;
-        console.log(keyInfo.userAccessArray[userNameIndex].count);
     }
 
     if (keyInfo.userAccessArray[userNameIndex].count > 5) {
