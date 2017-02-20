@@ -13,9 +13,11 @@ router.get('/', function (req, res){
 
 router.get('/uppercase', function (req, res){
 
-    var getUppLog = requestLogs.createLog(req.query.stringToChange, req.query.userid, req.path, req.method);
-
     var inputString = req.query.stringToChange;
+    var getUppLog = requestLogs.createLog(inputString,
+        req.query.userid, req.path, req.method);    
+
+
 
     if (inputValidation.isAlpha(inputString)){
         getUppLog.valid = true;
