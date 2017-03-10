@@ -1,0 +1,18 @@
+{
+  "name": "mongooseEx2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "export PORT=3001 && index.js",
+  "scripts": {
+    "start" : "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongodb": "^2.2.24",
+    "mongoose": "^4.8.6"
+  }
+}

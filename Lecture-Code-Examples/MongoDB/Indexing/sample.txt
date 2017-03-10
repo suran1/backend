@@ -1,0 +1,30 @@
+// Let's say you have a database with entries that look like this:
+// lower selectivity
+
+{ _id: ObjectId(), a:1, b: "ab"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// look for patterns that match:
+// it first matches a, then b
+{ a: 2, b:"no"}  // have to search at least 3 documents to find the no
+
+{ a: {gt}}
+
+
+// second set is high selectivity - which is what you want - to look at the fewest
+// documents possible to find match or not find it
