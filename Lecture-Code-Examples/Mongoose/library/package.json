@@ -2,7 +2,7 @@
   "name": "mongooseEx2",
   "version": "1.0.0",
   "description": "",
-  "main": "export PORT=3001 && index.js",
+  "main": "index.js",
   "scripts": {
     "start" : "node index.js"
   },

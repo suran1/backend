@@ -62,7 +62,7 @@ app.get('/authors', function (req, res){
 
 app.get('/books/:title', function (req, res) {
     var bookTitle = req.params.title;
-    console.log('bookTitle: ', bookTitle);
+    
     libraryService.fetchByTitle(bookTitle).then(function(titleFetched){
         res.status(200).send(titleFetched);
     }).catch(function(error){
@@ -72,7 +72,7 @@ app.get('/books/:title', function (req, res) {
 
 app.get('/authors/lastname/:lastname', function (req, res) {
     var lastname = req.params.lastname;
-    
+
     authorLastNameQuery = { lastname : lastname };
 
     libraryService.fetchAuthorByFirstOrLastName(authorLastNameQuery).then(function (authorFetched){

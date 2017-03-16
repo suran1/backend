@@ -1,0 +1,16 @@
+{
+  "name": "Ex1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js | bunyan -o short"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bunyan": "^1.8.8",
+    "express": "^4.15.2"
+  }
+}
